@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期函数</title>
+     <!-- 引入 vue -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+    <script type="text/javascript">
+        const data = {
+            message: '生命周期函数'
+        };
+        var app = new Vue({
+            el: '#app',
+            data: data,
+            beforeCreate:function(){
+                console.log('整个页面创建之前调用函数 beforeCreate');
+            },
+            created: function(){
+                console.log('实例创建完成后立即调用函数 created');
+            },
+            beforeMount: function(){
+                console.log('在挂载以前调用 created');
+            },
+            mounted: function(){
+                console.log('zhge ddddd');
+            },
+            beforeUpdate: function(){
+                console.log('数据修改以前调用');
+            },
+            update: function(){
+                console.log('数据已经更新');
+            },
+        });
+    </script>
+</html>
