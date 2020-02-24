@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单输入绑定</title>
+     <!-- 引入 vue -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span style="color: red;">文本</span>
+        <br/>
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+
+        <span style="color: red;">多行文本</span>
+        <br/>
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{ message }}</p>
+        <br>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        <br>
+
+        <span style="color: red;">复选框 -- 单个</span>
+        <br/>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <br/>
+
+        <span style="color: red;">复选框 -- 多个</span>
+        <br/>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+        <br>
+
+        <span style="color: red;">单选按钮</span>
+        <br/>
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+        <br/>
+
+        <span style="color: red;">选择框 --  单选</span>
+        <br/>
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+        <br/>
+
+        <span style="color: red;">选择框 --  多选</span>
+        <br/>
+        <select v-model="selecteds" multiple style="width: 50px;">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+          <br>
+        <span>Selected: {{ selecteds }}</span>
+        <br/>
+
+        <span style="color: red;">值绑定</span>
+        <br/>
+        <!-- 当选中时，`picked` 为字符串 "a" -->
+        <input type="radio" v-model="picked" value="a">
+
+        <!-- `toggle` 为 true 或 false -->
+        <input type="checkbox" v-model="toggle">
+
+        <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+        <select v-model="selected">
+        <option value="abc">ABC</option>
+        </select>
+        <span>Selected: {{ selecteds }}</span>
+        <br/>
+
+        
+
+
+    </div>
+</body>
+<script type="text/javascript">
+    const data = {
+        message: '',
+        checked: true,
+        picked: '',
+        checkedNames: [],
+        selected: '',
+        selecteds: []
+    };
+    var app = new Vue({
+        el: '#app',
+        data: data
+    });
+</script>
+</html>

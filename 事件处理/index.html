@@ -9,15 +9,17 @@
 </head>
 <body>
     <div id="app">
-        <span style="color: red;">事件监听</span>
+        <span style="color: red;">事件监听 -- v-on</span>
         <button v-on:click="counter += 1">Add 1</button>
         <p>点击我 {{ counter }} 次数.</p>
         <br/>
 
-        <span style="color: red;">事件监听</span>
-        <button v-on:click="counter += 1">Add 1</button>
-        <p>点击我 {{ counter }} 次数.</p>
+        <span style="color: red;">事件监听 -- 方法</span>
         <br/>
+        <button v-on:click="functionAdd">functionAdd</button>
+        <br/>
+
+        <span style="color: red;">事件监听 -- 事件修饰符</span>
     </div>
 </body>
 <script type="text/javascript">
@@ -26,7 +28,12 @@
     };
     var app = new Vue({
         el: '#app',
-        data: data
+        data: data,
+        methods: {
+            functionAdd: function() {
+                alert('点击事件');
+            }
+        }
     });
 </script>
 </html>
